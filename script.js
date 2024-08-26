@@ -10,12 +10,14 @@ let board = [
 
 let player1 = {
     name:"player1",
-    score:99
+    score:99,
+    icon:1
 }
 
 let player2 = {
     name:"player2",
-    score:99
+    score:99,
+    icon:2
 }
 
 
@@ -123,26 +125,60 @@ const runGame = function(){
     let moveRow
     let moveCol
 
-    initialiseGame.printBoard()
-
     console.log("Starting Game...");
+
+    let turn = 0;
     
 
-    while(!duringGame.boardFull()){
+    theLoop: while(!duringGame.boardFull()){
         console.log("Enter Move in Prompt");
         
+        if(turn === 0){
 
-        moveRow = prompt("Enter the Row (0-2) :", "0, 1 or 2");
-        moveCol = prompt("Enter the Column (0-2) :", "0, 1 or 2");
+        moveRow = prompt("Player1 : Enter the Row (0-2) :");
+        moveCol = prompt("Player1 : Enter the Column (0-2) :");
 
         board[moveRow][moveCol] = 1
 
+        turn = 1
+
         initialiseGame.printBoard()
+        console.log(`Win status for P1 is ${duringGame.checkWin(1)}`);
 
         if(duringGame.checkWin(1)){
-            console.log("Win Condition Hit!!!")
-            break;
+            console.log("Win Condition Hit for P1!!!")
+            break theLoop
         }
+
+
+        }
+
+        if(turn === 1){
+
+            moveRow = prompt("Player2 : Enter the Row (0-2) :");
+            moveCol = prompt("Player2 : Enter the Column (0-2) :");
+    
+            board[moveRow][moveCol] = 2
+    
+            turn = 0
+
+            initialiseGame.printBoard()
+            console.log(`Win status for P2 is ${duringGame.checkWin(2)}`);
+
+            if(duringGame.checkWin(2)){
+                console.log("Win Condition Hit for P2!!!")
+                break theLoop
+            }
+            
+    
+            }
+
+
+
+        
+
+        
+
     }
 }
 
