@@ -20,6 +20,10 @@ let player2 = {
     icon:2
 }
 
+let iconP1 = "X"
+let iconP2 = "O"
+let iconEmpty = ""
+
 
 
 
@@ -30,7 +34,7 @@ const initialiseGame = (function(){
     const resetGame = ()=>{
         for(let row = 0; row<3; row++){
             for(let column=0;column<3;column++){
-                board[row][column]=0;
+                board[row][column]=iconEmpty;
             }
         }
 
@@ -97,7 +101,7 @@ const duringGame = (function(){
     const boardFull = ()=>{
         for(let row = 0; row<3; row++){
             for(let column=0;column<3;column++){
-                if(board[row][column]===0){
+                if(board[row][column]===iconEmpty){
                     return false;
                 }
 
@@ -136,13 +140,13 @@ const runGame = function(){
 
         move = prompt("Player 1 : Enter Your Move (ex: 00, 01 etc) :").toString();
 
-        board[move[0]][move[1]] = 1
+        board[move[0]][move[1]] = iconP1
 
         turn = 1
 
         initialiseGame.printBoard()
 
-        if(duringGame.checkWin(1)){
+        if(duringGame.checkWin(iconP1)){
             console.log("Player 1 won the game !!!")
             break theLoop
         }
@@ -159,13 +163,13 @@ const runGame = function(){
 
             move = prompt("Player 2 : Enter Your Move (ex: 00, 01 etc) :").toString();
 
-            board[move[0]][move[1]] = 2
+            board[move[0]][move[1]] = iconP2
     
             turn = 0
 
             initialiseGame.printBoard()
             
-            if(duringGame.checkWin(2)){
+            if(duringGame.checkWin(iconP2)){
                 console.log("Player 2 won the game !!!")
                 break theLoop
             }
