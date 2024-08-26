@@ -110,11 +110,18 @@ const duringGame = (function(){
         return true;
     }
 
+    const occupied = (move)=>{
+        if(board[move[0]][move[1]] === iconEmpty){
+            return false
+        }else{return true}
+    }
+
     
 
     return{
         checkWin,
-        boardFull
+        boardFull,
+        occupied
     }
 
 
@@ -139,8 +146,9 @@ const runGame = function(){
         if(turn === 0){
 
         move = prompt("Player 1 : Enter Your Move (ex: 00, 01 etc) :").toString();
-
-        board[move[0]][move[1]] = iconP1
+        if(!duringGame.occupied(move)){
+            board[move[0]][move[1]] = iconP1
+        }
 
         turn = 1
 
