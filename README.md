@@ -1,4 +1,5 @@
 # Tic-Tac-Toe Game
 
 pretty self explanatory <br>
-(IN PROGRESS!!)
+
+Currently Can be Played completely in the Console with some basic UI
