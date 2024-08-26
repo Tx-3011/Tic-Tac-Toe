@@ -122,8 +122,7 @@ const runGame = function(){
     initialiseGame.resetGame()
     initialiseGame.printBoard()
 
-    let moveRow
-    let moveCol
+    let move
 
     console.log("Starting Game...");
 
@@ -135,10 +134,9 @@ const runGame = function(){
         
         if(turn === 0){
 
-        moveRow = prompt("Player1 : Enter the Row (0-2) :");
-        moveCol = prompt("Player1 : Enter the Column (0-2) :");
+        move = prompt("Player 1 : Enter Your Move (ex: 00, 01 etc) :").toString();
 
-        board[moveRow][moveCol] = 1
+        board[move[0]][move[1]] = 1
 
         turn = 1
 
@@ -155,10 +153,9 @@ const runGame = function(){
 
         if(turn === 1){
 
-            moveRow = prompt("Player2 : Enter the Row (0-2) :");
-            moveCol = prompt("Player2 : Enter the Column (0-2) :");
-    
-            board[moveRow][moveCol] = 2
+            move = prompt("Player 2 : Enter Your Move (ex: 00, 01 etc) :").toString();
+
+            board[move[0]][move[1]] = 2
     
             turn = 0
 
