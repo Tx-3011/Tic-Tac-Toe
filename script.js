@@ -141,10 +141,14 @@ const runGame = function(){
         turn = 1
 
         initialiseGame.printBoard()
-        console.log(`Win status for P1 is ${duringGame.checkWin(1)}`);
 
         if(duringGame.checkWin(1)){
-            console.log("Win Condition Hit for P1!!!")
+            console.log("Player 1 won the game !!!")
+            break theLoop
+        }
+
+        if(duringGame.boardFull()){
+            console.log("It's A Draw!!!");
             break theLoop
         }
 
@@ -160,10 +164,14 @@ const runGame = function(){
             turn = 0
 
             initialiseGame.printBoard()
-            console.log(`Win status for P2 is ${duringGame.checkWin(2)}`);
-
+            
             if(duringGame.checkWin(2)){
-                console.log("Win Condition Hit for P2!!!")
+                console.log("Player 2 won the game !!!")
+                break theLoop
+            }
+
+            if(duringGame.boardFull()){
+                console.log("It's A Draw!!!");
                 break theLoop
             }
             
@@ -182,6 +190,7 @@ const runGame = function(){
 
 
 runGame()
+
 
 
 
