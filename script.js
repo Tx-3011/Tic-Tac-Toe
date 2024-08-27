@@ -110,11 +110,18 @@ const duringGame = (function(){
         return true;
     }
 
+    const occupied = (move)=>{
+        if(board[move[0]][move[1]] === iconEmpty){
+            return false
+        }else{return true}
+    }
+
     
 
     return{
         checkWin,
-        boardFull
+        boardFull,
+        occupied
     }
 
 
@@ -193,7 +200,7 @@ const runGame = function(){
 
 
 
-runGame()
+
 
 
 

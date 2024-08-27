@@ -1,0 +1,47 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.gameBoard{
+    display: grid;
+    grid-template-rows: repeat(3,7rem);
+    grid-template-columns: repeat(3,7rem);
+    gap: 5px;
+
+    margin-top: 10rem;
+
+}
+
+.iconArea{
+    height: 7rem;
+    width: 7rem;
+    border: 1px solid black;
+
+}
+
+.nav{
+    margin-top: 1rem;
+
+}
+
+.c1{
+    border-radius: 10px 0px 0px 0px;
+}
+.c2{
+    border-radius: 0px 10px 0px 0px;
+}
+.c3{
+    border-radius: 0px 0px 0px 10px;
+}
+.c4{
+    border-radius: 0px 0px 10px 0px;
+}
