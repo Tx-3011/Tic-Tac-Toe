@@ -22,8 +22,6 @@ let player2 = {
 
 let iconP1 = "X"
 let iconP2 = "O"
-let iconEmpty = ""
-
 
 
 
@@ -34,12 +32,18 @@ const initialiseGame = (function(){
     const resetGame = ()=>{
         for(let row = 0; row<3; row++){
             for(let column=0;column<3;column++){
-                board[row][column]=iconEmpty;
+                board[row][column]=0;
             }
         }
 
         player1.score = 0
         player2.score = 0
+
+        test = 0
+
+        for(let i = 0; i<cells.length; i++){
+            cells[i].style.backgroundImage = "url('')"
+        }
     }
 
     const printBoard = ()=>{
@@ -101,7 +105,7 @@ const duringGame = (function(){
     const boardFull = ()=>{
         for(let row = 0; row<3; row++){
             for(let column=0;column<3;column++){
-                if(board[row][column]===iconEmpty){
+                if(board[row][column]===0){
                     return false;
                 }
 
@@ -111,9 +115,19 @@ const duringGame = (function(){
     }
 
     const occupied = (move)=>{
-        if(board[move[0]][move[1]] === iconEmpty){
+        if(board[move[0]][move[1]] === 0){
             return false
         }else{return true}
+    }
+
+    const inputMove = (move,icon)=>{
+        board[move[1]][move[2]] = icon;
+    }
+
+    const removeEventListener = ()=>{
+        for(let i = 0; i<cells.length; i++){
+            cells[i].removeEventListener('click',removeClick)
+        }
     }
 
     
@@ -121,7 +135,8 @@ const duringGame = (function(){
     return{
         checkWin,
         boardFull,
-        occupied
+        occupied,
+        inputMove
     }
 
 
@@ -198,8 +213,83 @@ const runGame = function(){
     }
 }
 
+const oPath = "url('./ImageAssets/circle2.svg')"
+const xPath = "url('./ImageAssets/cross.svg')"
 
 
+const gameBoard = document.querySelector(".gameBoard")
+const cells = gameBoard.querySelectorAll(".iconArea")
+const result = document.querySelector("#result")
+const reset = document.querySelector("#reset")
+
+turn = 0;
+
+
+
+for(let i=0;i<cells.length;i++){
+    cells[i].addEventListener('click',()=>{
+
+        if(turn===0){
+            
+
+
+            let tempMove = (cells[i].id).toString()
+
+            if(board[tempMove[1]][tempMove[2]] === 0 && !duringGame.checkWin(1) && !duringGame.checkWin(2)){
+
+
+            cells[i].style.backgroundImage = xPath
+
+            
+
+            board[tempMove[1]][tempMove[2]] = 1
+
+            if(duringGame.checkWin(1)){
+                result.textContent = "Player X won the game"
+            }
+
+            if(duringGame.boardFull()){
+                result.textContent = "It's a Draw"
+            }
+
+            turn = 1
+
+        }
+            
+            
+        }else if(turn===1){
+
+            let tempMove = (cells[i].id).toString()
+
+            if(board[tempMove[1]][tempMove[2]] === 0 && !duringGame.checkWin(1) && !duringGame.checkWin(2)){
+            
+
+            cells[i].style.backgroundImage = oPath
+
+            board[tempMove[1]][tempMove[2]] = 2
+
+            if(duringGame.checkWin(2)){
+                result.textContent = "Player O won the game"
+
+            }
+
+            if(duringGame.boardFull()){
+                result.textContent = "It's a Draw"
+            }
+
+            turn = 0
+
+        }
+
+        }
+
+
+    })
+
+    reset.addEventListener('click',()=>{
+        initialiseGame.resetGame();
+    })
+}
 
 
 

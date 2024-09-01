@@ -45,3 +45,19 @@ body{
 .c4{
     border-radius: 0px 0px 10px 0px;
 }
+
+.iconArea{
+    background-repeat:no-repeat;
+    background-position: 10px 10px;
+    background-size: 85%;
+}
+
+.reset{
+    margin-top: 2rem;
+    border:2px solid black;
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: wheat;
+    
+}
+
