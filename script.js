@@ -44,6 +44,8 @@ const initialiseGame = (function(){
         for(let i = 0; i<cells.length; i++){
             cells[i].style.backgroundImage = "url('')"
         }
+
+        result.textContent = ""
     }
 
     const printBoard = ()=>{
