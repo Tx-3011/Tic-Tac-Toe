@@ -2,4 +2,4 @@
 
 pretty self explanatory <br>
 
-Currently Can be Played completely in the Console with some basic UI
+will add the player score system later but works great rn
