@@ -109,4 +109,18 @@ body{
     border-bottom: none;
 }
 
+.result{
+    margin:2rem;
+    margin-bottom: 0;
+
+    font-family: 'nerko one',Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    background-color: var(--navTextColor);
+
+    border-radius: 10px;
+    padding: 0.75rem;
+
+    display: none;
+}
+
 

@@ -45,19 +45,10 @@ const initialiseGame = (function(){
             cells[i].style.backgroundImage = "url('')"
         }
 
-        result.textContent = ""
+        result.style.display = "none"
     }
 
     const printBoard = ()=>{
-        // for(let row = 0; row<3; row++){
-        //     for(let column=0;column<3;column++){
-        //         console.log(board[row][column] )
-        //     }
-    
-        //     console.log(" || ")
-    
-        // }
-
         console.table(board)
     }
 
@@ -248,11 +239,15 @@ for(let i=0;i<cells.length;i++){
             board[tempMove[1]][tempMove[2]] = 1
 
             if(duringGame.checkWin(1)){
-                result.textContent = "Player X won the game"
+                result.textContent = "Player X won the game!!!"
+                result.style.display = "block"
+                
             }
 
             if(duringGame.boardFull()){
                 result.textContent = "It's a Draw"
+                result.style.display = "block"
+
             }
 
             turn = 1
@@ -272,12 +267,16 @@ for(let i=0;i<cells.length;i++){
             board[tempMove[1]][tempMove[2]] = 2
 
             if(duringGame.checkWin(2)){
-                result.textContent = "Player O won the game"
+                result.textContent = "Player O won the game!!!"
+                result.style.display = "block"
+
 
             }
 
             if(duringGame.boardFull()){
                 result.textContent = "It's a Draw"
+                result.style.display = "block"
+
             }
 
             turn = 0
