@@ -135,68 +135,70 @@ const duringGame = (function(){
 
 })()
 
+// FOR RUNNING ON CONSOLE
 
-const runGame = function(){
 
-    initialiseGame.resetGame()
-    initialiseGame.printBoard()
+// const runGame = function(){
 
-    let move
+//     initialiseGame.resetGame()
+//     initialiseGame.printBoard()
 
-    console.log("Starting Game...");
+//     let move
 
-    let turn = 0;
+//     console.log("Starting Game...");
+
+//     let turn = 0;
     
 
-    theLoop: while(!duringGame.boardFull()){
-        console.log("Enter Move in Prompt");
+//     theLoop: while(!duringGame.boardFull()){
+//         console.log("Enter Move in Prompt");
         
-        if(turn === 0){
+//         if(turn === 0){
 
-        move = prompt("Player 1 : Enter Your Move (ex: 00, 01 etc) :").toString();
-        if(!duringGame.occupied(move)){
-            board[move[0]][move[1]] = iconP1
-        }
+//         move = prompt("Player 1 : Enter Your Move (ex: 00, 01 etc) :").toString();
+//         if(!duringGame.occupied(move)){
+//             board[move[0]][move[1]] = iconP1
+//         }
 
-        turn = 1
+//         turn = 1
 
-        initialiseGame.printBoard()
+//         initialiseGame.printBoard()
 
-        if(duringGame.checkWin(iconP1)){
-            console.log("Player 1 won the game !!!")
-            break theLoop
-        }
+//         if(duringGame.checkWin(iconP1)){
+//             console.log("Player 1 won the game !!!")
+//             break theLoop
+//         }
 
-        if(duringGame.boardFull()){
-            console.log("It's A Draw!!!");
-            break theLoop
-        }
+//         if(duringGame.boardFull()){
+//             console.log("It's A Draw!!!");
+//             break theLoop
+//         }
 
 
-        }
+//         }
 
-        if(turn === 1){
+//         if(turn === 1){
 
-            move = prompt("Player 2 : Enter Your Move (ex: 00, 01 etc) :").toString();
+//             move = prompt("Player 2 : Enter Your Move (ex: 00, 01 etc) :").toString();
 
-            board[move[0]][move[1]] = iconP2
+//             board[move[0]][move[1]] = iconP2
     
-            turn = 0
+//             turn = 0
 
-            initialiseGame.printBoard()
+//             initialiseGame.printBoard()
             
-            if(duringGame.checkWin(iconP2)){
-                console.log("Player 2 won the game !!!")
-                break theLoop
-            }
+//             if(duringGame.checkWin(iconP2)){
+//                 console.log("Player 2 won the game !!!")
+//                 break theLoop
+//             }
 
-            if(duringGame.boardFull()){
-                console.log("It's A Draw!!!");
-                break theLoop
-            }
+//             if(duringGame.boardFull()){
+//                 console.log("It's A Draw!!!");
+//                 break theLoop
+//             }
             
     
-            }
+//             }
 
 
 
@@ -204,8 +206,11 @@ const runGame = function(){
 
         
 
-    }
-}
+//     }
+// }
+
+
+
 
 const oPath = "url('./ImageAssets/circle2.svg')"
 const xPath = "url('./ImageAssets/cross.svg')"
