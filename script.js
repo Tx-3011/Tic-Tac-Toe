@@ -250,8 +250,15 @@ for(let i=0;i<cells.length;i++){
             }
 
             if(duringGame.boardFull()){
-                result.textContent = "It's a Draw"
+
+                if(duringGame.checkWin(1)){
+
+                result.textContent = "Player X won the game!!!"
                 result.style.display = "block"
+
+                }else{
+                result.textContent = "It's a Draw"
+                result.style.display = "block"}
 
             }
 
@@ -279,8 +286,15 @@ for(let i=0;i<cells.length;i++){
             }
 
             if(duringGame.boardFull()){
-                result.textContent = "It's a Draw"
+
+                if(duringGame.checkWin(2)){
+
+                result.textContent = "Player o won the game!!!"
                 result.style.display = "block"
+
+                }else{
+                result.textContent = "It's a Draw"
+                result.style.display = "block"}
 
             }
 
