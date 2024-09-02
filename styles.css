@@ -94,8 +94,14 @@ body{
     text-align: center;
     padding-bottom: 2rem;
 
+    box-shadow: -4px 6px 10px var(--cellBorderColor);
+
 
     
+}
+
+.reset:active{
+    box-shadow: none;
 }
 
 .c1,.e2,.c3{
